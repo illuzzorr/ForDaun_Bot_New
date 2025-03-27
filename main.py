@@ -47,7 +47,7 @@ async def reply_to_target_user(message: types.Message):
         await message.reply(response)
 
     if message.from_user.id == TARGET_USER_ID2:
-        await message.reply("йоууу")
+        await message.reply("проверка")
 
 async def main():
     logging.basicConfig(level=logging.INFO)
