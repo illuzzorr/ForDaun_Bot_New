@@ -9,6 +9,7 @@ from aiogram.filters import ChatMemberUpdatedFilter
 BOT_TOKEN = "7720705041:AAF_OhKsVZV1QGca-gh_kM0Lc90brfuDUF8"
 # ID пользователя, сообщения которого нужно отслеживать
 TARGET_USER_ID = 8166794940  # Укажите нужный user_id
+TARGET_USER_ID2 = 642818159  # Укажите нужный user_id
 
 # Список возможных ответов бота
 RESPONSES = [
@@ -36,6 +37,9 @@ async def reply_to_target_user(message: types.Message):
     if message.from_user.id == TARGET_USER_ID:
         response = random.choice(RESPONSES)
         await message.reply(response)
+
+    if message.from_user.id == TARGET_USER_ID2:
+        await message.reply("йоу")
 
 async def main():
     logging.basicConfig(level=logging.INFO)
