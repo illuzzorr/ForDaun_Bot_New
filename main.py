@@ -5,9 +5,13 @@ from aiogram import Bot, Dispatcher, types
 from aiogram.types import ChatMemberUpdated
 from datetime import datetime
 import os
+import logging
 
 from aiogram import Bot, Dispatcher, Router, types
 from aiogram import F
+from aiogram.filters import CommandStart, Command
+from aiogram.types import Message
+
 from aiogram.enums import ParseMode
 from aiogram.client.bot import DefaultBotProperties
 from aiogram.filters import CommandStart
@@ -22,7 +26,7 @@ TOKEN = os.environ.get("7720705041:AAF_OhKsVZV1QGca-gh_kM0Lc90brfuDUF8")
 PASHA_ID = 722401589  # Паша
 SASHA_ID = 1038044523  # Саша
 #TARGET_USER_ID2 = 642818159  # Укажите нужный user_id
-
+start_router = Router()
 # Список возможных ответов бота
 PASHA_RESPONSES = [
     "Иди нахер, даун",
