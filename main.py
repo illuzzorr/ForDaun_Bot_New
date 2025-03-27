@@ -16,11 +16,11 @@ from aiogram.utils.markdown import hbold
 BOT_TOKEN = "7720705041:AAF_OhKsVZV1QGca-gh_kM0Lc90brfuDUF8"
 TOKEN = os.environ.get("7720705041:AAF_OhKsVZV1QGca-gh_kM0Lc90brfuDUF8")
 # ID пользователя, сообщения которого нужно отслеживать
-TARGET_USER_ID = 722401589  # Укажите нужный user_id
+PASHA_ID = 722401589  # Паша
 #TARGET_USER_ID2 = 642818159  # Укажите нужный user_id
 
 # Список возможных ответов бота
-RESPONSES = [
+PASHA_RESPONSES = [
     "Иди нахер, даун",
     "И чё, долбаёб",
     "Нет, ты даун",
@@ -28,6 +28,18 @@ RESPONSES = [
     "Ладно, даун, ладно",
     "Ты долбаёб просто",
     "А ты даун"
+]
+
+GOOD_RESPONSES = [
+    "Ты сегодня просто супер!",
+    "Хорошего тебе дня)",
+    "Держи котика для настроения 🐈",
+    "Относить к другим так, как хочешь чтобы относились к тебе",
+    "Лучше бы в казино депнули",
+    "Дружеское напоминание: гордость - источник всех грехов",
+    "И чё?",
+    "В жизни нужно чтобы не всё было хорошо\n\n©Павел Ильич",
+
 ]
 
 bot = Bot(token=BOT_TOKEN)
@@ -41,10 +53,16 @@ async def on_new_chat_member(update: ChatMemberUpdated):
 
 @dp.message()
 async def reply_to_target_user(message: types.Message):
-    """Отвечает на каждое сообщение определенного пользователя."""
-    if message.from_user.id == TARGET_USER_ID:
-        response = random.choice(RESPONSES)
-        await message.reply(response)
+    if message.from_user.id == PASHA_ID:
+        is_answer = random.randint(0, 7)
+        if is_answer == 1:
+            response = random.choice(PASHA_RESPONSES)
+            await message.reply(response)
+    else:
+        is_answer = random.randint(0, 10)
+        if is_answer == 1:
+            response = random.choice(GOOD_RESPONSES)
+            await message.reply(response)
 
   #  if message.from_user.id == TARGET_USER_ID2:
    #     await message.reply("проверка")
