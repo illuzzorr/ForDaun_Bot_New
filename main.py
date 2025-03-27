@@ -7,6 +7,7 @@ from datetime import datetime
 import os
 
 from aiogram import Bot, Dispatcher, Router, types
+from aiogram import F
 from aiogram.enums import ParseMode
 from aiogram.client.bot import DefaultBotProperties
 from aiogram.filters import CommandStart
@@ -67,7 +68,7 @@ def calculate_days_to_may():
     delta = may_first - today
     return delta.days
 
-@dp.message_handler(commands=['mayskie'])
+@dp.message(Command("mayskie"))
 async def send_days_to_may(message: types.Message):
     days_left = calculate_days_to_may()
     await message.reply(f"До майских осталось {days_left} дней ☀️")
@@ -79,8 +80,8 @@ async def on_new_chat_member(update: ChatMemberUpdated):
     if update.new_chat_member.user.id == (await bot.me()).id:
         await bot.send_message(update.chat.id, "Идите нахер")
 
-
-@dp.message_handler(lambda message: "иди" in message.text.lower())
+@dp.message(F.text.lower().contains("иди"))
+#@dp.message_handler(lambda message: "иди" in message.text.lower())
 async def reply_idi(message: types.Message):
     # Разделяем текст на части после "иди" (регистронезависимо)
     text_after_idi = message.text.lower().split("иди", 1)[-1].strip()
