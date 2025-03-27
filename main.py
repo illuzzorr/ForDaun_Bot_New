@@ -61,6 +61,11 @@ GOOD_RESPONSES = [
 
 ]
 
+DA_RESPONSES = [
+    "Сосал?",
+    "Пизда"
+]
+
 logging.basicConfig(level=logging.INFO)
 
 bot = Bot(token=BOT_TOKEN)
@@ -77,6 +82,10 @@ async def send_days_to_may(message: types.Message):
     days_left = calculate_days_to_may()
     await message.reply(f"До майских осталось {days_left} дней ☀️")
 
+@dp.message(F.text.lower() == "да")
+async def handle_da(message: Message):
+    response = random.choice(DA_RESPONSES)
+    await message.reply(response)
 
 @dp.chat_member()
 async def on_new_chat_member(update: ChatMemberUpdated):
@@ -91,24 +100,24 @@ async def reply_idi(message: types.Message):
     text_after_idi = message.text.lower().split("иди", 1)[-1].strip()
 
     # Формируем ответ: "иди..." + остальной текст (в оригинальном регистре)
-    reply_text = f"Сам(а) иди{text_after_idi}"
+    reply_text = f"Сам иди {text_after_idi}"
     await message.reply(reply_text)
 
 
 @dp.message()
 async def reply_to_target_user(message: types.Message):
     if message.from_user.id == PASHA_ID:
-        is_answer = random.randint(0, 8)
+        is_answer = random.randint(0, 7)
         if is_answer == 1:
             response = random.choice(PASHA_RESPONSES)
             await message.reply(response)
     if message.from_user.id == SASHA_ID:
-        is_answer = random.randint(0, 13)
+        is_answer = random.randint(0, 8)
         if is_answer == 1:
             response = random.choice(SASHA_RESPONSES)
             await message.reply(response)
     if message.from_user.id != SASHA_ID and message.from_user.id != PASHA_ID:
-        is_answer = random.randint(0, 15)
+        is_answer = random.randint(0, 10)
         if is_answer == 1:
             response = random.choice(GOOD_RESPONSES)
             await message.reply(response)
