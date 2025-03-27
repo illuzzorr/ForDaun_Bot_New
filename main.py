@@ -7,6 +7,7 @@ from aiogram.filters import ChatMemberUpdatedFilter
 
 # Замените на токен вашего бота
 BOT_TOKEN = "7720705041:AAF_OhKsVZV1QGca-gh_kM0Lc90brfuDUF8"
+TOKEN = os.environ.get("7720705041:AAF_OhKsVZV1QGca-gh_kM0Lc90brfuDUF8")
 # ID пользователя, сообщения которого нужно отслеживать
 TARGET_USER_ID = 8166794940  # Укажите нужный user_id
 TARGET_USER_ID2 = 642818159  # Укажите нужный user_id
