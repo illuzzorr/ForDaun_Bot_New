@@ -92,21 +92,21 @@ async def reply_idi(message: types.Message):
 
 @dp.message()
 async def reply_to_target_user(message: types.Message):
-        if message.from_user.id == PASHA_ID:
-            is_answer = random.randint(0, 8)
-            if is_answer == 1:
-                response = random.choice(PASHA_RESPONSES)
+    if message.from_user.id == PASHA_ID:
+        is_answer = random.randint(0, 8)
+        if is_answer == 1:
+            response = random.choice(PASHA_RESPONSES)
+            await message.reply(response)
+    if message.from_user.id == SASHA_ID:
+        is_answer = random.randint(0, 13)
+        if is_answer == 1:
+            response = random.choice(SASHA_RESPONSES)
+            await message.reply(response)
+    if message.from_user.id != SASHA_ID and message.from_user.id != PASHA_ID:
+        is_answer = random.randint(0, 15)
+        if is_answer == 1:
+            response = random.choice(GOOD_RESPONSES)
                 await message.reply(response)
-        if message.from_user.id == SASHA_ID:
-            is_answer = random.randint(0, 13)
-            if is_answer == 1:
-                response = random.choice(SASHA_RESPONSES)
-                await message.reply(response)
-        if message.from_user.id != SASHA_ID and message.from_user.id != PASHA_ID:
-                is_answer = random.randint(0, 15)
-                if is_answer == 1:
-                    response = random.choice(GOOD_RESPONSES)
-                    await message.reply(response)
   #  if message.from_user.id == TARGET_USER_ID2:
    #     await message.reply("проверка")
 
