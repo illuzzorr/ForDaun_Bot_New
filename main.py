@@ -3,7 +3,14 @@ import logging
 import random
 from aiogram import Bot, Dispatcher, types
 from aiogram.types import ChatMemberUpdated
-from aiogram.filters import ChatMemberUpdatedFilter
+import os
+
+from aiogram import Bot, Dispatcher, Router, types
+from aiogram.enums import ParseMode
+from aiogram.client.bot import DefaultBotProperties
+from aiogram.filters import CommandStart
+from aiogram.types import Message
+from aiogram.utils.markdown import hbold
 
 # Замените на токен вашего бота
 BOT_TOKEN = "7720705041:AAF_OhKsVZV1QGca-gh_kM0Lc90brfuDUF8"
