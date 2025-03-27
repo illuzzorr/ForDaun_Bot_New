@@ -63,6 +63,8 @@ GOOD_RESPONSES = [
 
 DA_RESPONSES = [
     "Сосал?",
+    "Сосал?",
+    "Сосал?",
     "Пизда"
 ]
 
@@ -107,17 +109,17 @@ async def reply_idi(message: types.Message):
 @dp.message()
 async def reply_to_target_user(message: types.Message):
     if message.from_user.id == PASHA_ID:
-        is_answer = random.randint(0, 7)
+        is_answer = random.randint(0, 6)
         if is_answer == 1:
             response = random.choice(PASHA_RESPONSES)
             await message.reply(response)
     if message.from_user.id == SASHA_ID:
-        is_answer = random.randint(0, 8)
+        is_answer = random.randint(0, 7)
         if is_answer == 1:
             response = random.choice(SASHA_RESPONSES)
             await message.reply(response)
     if message.from_user.id != SASHA_ID and message.from_user.id != PASHA_ID:
-        is_answer = random.randint(0, 10)
+        is_answer = random.randint(0, 8)
         if is_answer == 1:
             response = random.choice(GOOD_RESPONSES)
             await message.reply(response)
