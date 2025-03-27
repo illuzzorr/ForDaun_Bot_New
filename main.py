@@ -106,7 +106,7 @@ async def reply_to_target_user(message: types.Message):
         is_answer = random.randint(0, 15)
         if is_answer == 1:
             response = random.choice(GOOD_RESPONSES)
-                await message.reply(response)
+            await message.reply(response)
   #  if message.from_user.id == TARGET_USER_ID2:
    #     await message.reply("проверка")
 
