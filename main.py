@@ -16,7 +16,7 @@ from aiogram.utils.markdown import hbold
 # Замените на токен вашего бота
 BOT_TOKEN = "7720705041:AAF_OhKsVZV1QGca-gh_kM0Lc90brfuDUF8"
 TOKEN = os.environ.get("7720705041:AAF_OhKsVZV1QGca-gh_kM0Lc90brfuDUF8")
-MESSAGE_DELAY = os.environ.get("")
+
 # ID пользователя, сообщения которого нужно отслеживать
 PASHA_ID = 722401589  # Паша
 SASHA_ID = 1038044523  # Саша
